@@ -4,6 +4,11 @@ use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\DB;
+
+DB::listen(function ($query) {
+    dump($query->sql, $query->bindings);
+});
 
 Route::view('/','Welcome')->name('welcome');
 
