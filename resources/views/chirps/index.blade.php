@@ -22,12 +22,30 @@
             </div>
             </div>
 
+                <div class="mt-6 bg-white dark:bg-gray-800 shadow-sm rounded-lg divide-y dark:divide-gray-900">
+                    @foreach ($chirps as $chirp)
+                    <div class="p-6 flex space-x-2">
+                        <svg  class="h-6 w-6 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                          </svg>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-gray-600">
+                                        {{$chirp->user->name}}
+                                    </span>
+                                    <span class="text-gray-600 dark:text-gray-400">{{$chirp->created_at->diffForHumans()}}</span>
+                                </div>
+                            </div>
+                                <p class="mt-2 text-gray-900 dark:text-gray-100">{{$chirp->message}}</p>
+                        </div>
 
-            {{-- <div class="mt-6 bg-gray-200 dark:bg-blue-800 shadow-lg rounded-lg divide-y dark:divide-gray-900 transition-colors duration-500 ease-in-out">
-            <div class="p-6 flex space-x-2">
-            <svg class="h-6 w-6 text-gray-900 dark:text-gray-100 -scale-x-100" stroke-with="1.5" >
-            </div>
+                    </div>
+                    @endforeach
 
-            </div> --}}
+
+                </div>
+
+
     </div>
 </x-app-layout>
